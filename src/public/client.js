@@ -69,12 +69,8 @@ const Greeting = (name) => {
     `
 }
 
-const loading = () => {
-    return `<img src="assets/images/loading.gif" width="400" style="display:flex; justify-content: center; margin: 10% auto;"/>`;
-}
-
-// Generate rover detail
-const roverDetail = (rover) => {
+// Generate rover detail component
+const RoverDetail = (rover) => {
     const date = new Date(rover?.photos[0]?.earth_date)
     return `<div class="container">
         <figure class="card">
@@ -98,8 +94,8 @@ const roverDetail = (rover) => {
 
 
 
-  // Generate rover detail
-const roverList = (rovers, currentRover) => {
+  // Generate rover detail component
+const RoverList = (rovers, currentRover) => {
     return rovers?.map(rover => {
         const className = rover?.name === currentRover?.name ? 'active' : 'inactive';
         return `<a class="${className}" href="#" id="${rover?.name}" onclick="onSelectRover(${rover?.name})">${rover?.name}</a>`
@@ -110,14 +106,14 @@ const roverList = (rovers, currentRover) => {
 const App = (state) => {
     let { rovers, user, isLoading, currentRover } = state;
     return isLoading 
-    ? loading()
+    ? `<img src="assets/images/loading.gif" width="400" style="display:flex; justify-content: center; margin: 10% auto;"/>`
     : `<header>
             <div class="header-left">
                 <img src="assets/images/logo.png" width="60" style="margin-rigth: 15px"/>
                 <h3>Rovers images diary</h3>
             </div>
             <div class="header-right">
-                ${roverList(rovers, currentRover)}
+                ${RoverList(rovers, currentRover)}
             </div>
         </header>
         <main>
@@ -132,7 +128,7 @@ const App = (state) => {
                     explanation are returned. These keywords could be used as auto-generated hashtags for twitter or instagram feeds;
                     but generally help with discoverability of relevant imagery.
                 </p>
-                ${roverDetail(currentRover)}
+                ${RoverDetail(currentRover)}
             </section>
         </main>
         <footer>
