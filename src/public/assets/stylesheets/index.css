@@ -1,0 +1,228 @@
+/* -------------------  MOBILE  --------------------- */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --grey: #dddddd;
+  --black: #000000;
+  --shadow: rgba(0, 0, 0, 0.15);
+  --purple: #700877;
+  --red: #ff2759;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white);
+  padding: 20px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  flex-direction: column;
+  gap: 25px
+}
+
+header a {
+  padding: 12px;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+  text-align: center;
+  color: var(--black);
+  text-decoration: none;
+}
+
+header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header a:hover {
+  background-color: var(--grey);
+  color: var(--black);
+}
+
+header a.active {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+header .header-left {
+  display: flex;
+  gap: 10px;
+}
+
+header .header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  font-size: 16px;
+  margin: 10px 2%;
+  color: var(--white);
+  text-align: left;
+  max-width: 300px;
+  overflow: hidden;
+  min-width: 200px;
+  position: relative;
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+.card * {
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+.card img {
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+
+.card figcaption {
+  z-index: 1;
+  bottom: 0;
+  position: relative;
+  padding: 25px 20px 25px 20px;
+}
+
+.card figcaption:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+  opacity: 0.8;
+  z-index: -1;
+  position: absolute;
+  background: var(--purple);
+  background: linear-gradient(90deg, var(--purple) 0%, var(--red) 100%, var(--red) 100%);
+}
+
+.card .date {
+  top: -25px;
+  right: 15px;
+  font-size: 18px;
+  padding: 10px 0;
+  min-width: 48px;
+  font-weight: 700;
+  min-height: 48px;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  color: var(--purple);
+  text-transform: uppercase;
+  background-color: var(--white);
+}
+
+.card .date span {
+  display: block;
+  line-height: 14px;
+}
+
+.card .date .month {
+  font-size: 14px;
+}
+
+.card h3,
+.card p {
+  margin: 0;
+  padding: 0;
+}
+
+.card h3 {
+  display: inline-block;
+  letter-spacing: -1px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1em;
+  line-height: 2em;
+  margin-bottom: 0px;
+}
+
+.card a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.card:hover img,
+.card.hover img {
+  transform: scale(1.2);
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  border-top: 1px solid var(--grey);
+  padding: 20px 10px;
+}
+
+/* -------------------  TABLET  --------------------- */
+@media (min-width: 768px) {
+  header {
+    font-size: 20px;
+    font-weight: 500;
+    flex-direction: row;
+    align-items: center;
+  }
+  header .header-right {
+    flex-direction: row;
+  }
+}
+
+/* -------------------  DESKTOP  -------------------- */
+
+@media (min-width: 1224px) {
+  header {
+    font-size: 24px;
+    font-weight: 600;
+    flex-direction: row;
+    align-items: center;
+  }
+  header .header-right {
+    flex-direction: row;
+  }
+}
+
+/* -------------------  LARGE SCREENS  -------------- */
+
+@media (min-width: 1824px) {
+  header {
+    font-size: 26px;
+    font-weight: 700;
+    flex-direction: row;
+    align-items: center;
+  }
+  header .header-right {
+    flex-direction: row;
+  }
+}
